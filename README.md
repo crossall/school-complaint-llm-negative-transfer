@@ -1,10 +1,12 @@
 # Target-Task Misalignment in LLM Domain Adaptation
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22843819.svg)](https://doi.org/10.5281/zenodo.22843819)
+
 Reproducibility package for **“Target-Task Misalignment in LLM Domain Adaptation: Multi-Seed Negative Transfer and Retrieval Failures in School Complaint Response.”**
 
 This release candidate contains the synthetic SCB-48 benchmark, frozen evaluation keys, anonymized expert ratings, compact model outputs, retrieval metadata, and analysis code used for the manuscript. It reproduces the instruction-tuning, multi-seed, RAG, safety, and retrieval results without downloading model weights or running a GPU.
 
-> Release status: `v1.0.0` (released 2026-09-19 KST). Repository: [github.com/crossall/school-complaint-llm-negative-transfer](https://github.com/crossall/school-complaint-llm-negative-transfer). DOI will be inserted after the Zenodo release.
+> Release status: `v1.0.0` (released 2026-09-19 KST). Repository: [github.com/crossall/school-complaint-llm-negative-transfer](https://github.com/crossall/school-complaint-llm-negative-transfer). DOI: https://doi.org/10.5281/zenodo.22843819.
 
 ## Quick start
 
@@ -61,7 +63,7 @@ Code is licensed under Apache License 2.0. Project-authored benchmark, ratings, 
 
 Until the DOI is minted, cite the manuscript and this repository as:
 
-> Kim, Taeryeong. (2026). *School Complaint LLM Negative Transfer and Retrieval Failures: Reproducibility Package* (Version 1.0.0). DOI to be assigned.
+> Kim, Taeryeong. (2026). *School Complaint LLM Negative Transfer and Retrieval Failures: Reproducibility Package* (Version 1.0.0). https://doi.org/10.5281/zenodo.22843819.
 
 Machine-readable citation metadata are provided in `CITATION.cff` and `.zenodo.json`.
 
