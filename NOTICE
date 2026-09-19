@@ -1,0 +1,10 @@
+School Complaint LLM Negative Transfer and Retrieval Failures: Reproducibility Package
+Copyright 2026 Taeryeong Kim
+
+The repository includes project-authored code and derived research artifacts under separate
+licenses. See LICENSE and LICENSE-DATA.md.
+
+Qwen3, AI Hub datasets, BGE-M3, bge-reranker-v2-m3, and official Korean administrative
+documents are third-party materials. Their names, identifiers, and limited reproducibility
+metadata are included for scholarly reporting. No third-party model weights, AI Hub raw or
+processed training files, or complete official-document corpus are distributed here.

@@ -1,0 +1,201 @@
+{
+  "version": "0.6.0",
+  "phase": "3차 Pilot: Qwen chat-template SFT",
+  "created_at_kst": "2026-09-12T08:46:09+09:00",
+  "authority": "사용자 2026-09-12: 기존 데이터와 학습량을 유지하고 train/test Qwen chat template을 맞춘 Public/Private/Mixed 3개 adapter Pilot을 수행",
+  "purpose": "기존 어댑터 성능 저하에서 training-inference serialization mismatch를 제거하고 source-domain transfer 신호를 재검증한다.",
+  "preserve": {
+    "v0.5.0_outputs": true,
+    "retraining_base": false,
+    "old_adapters_role": "format sensitivity ablation only"
+  },
+  "model": {
+    "base": "Qwen/Qwen3-8B",
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+  },
+  "training_data": {
+    "public": {
+      "path": "pilot_public_train.jsonl",
+      "rows": 5600,
+      "sha256": "3c3efa0fcf2e134c4012af5c2dde8f9950a10c623599013160d19ee2291bb425",
+      "domain_counts": {
+        "public": 5600
+      }
+    },
+    "private": {
+      "path": "pilot_private_train.jsonl",
+      "rows": 5600,
+      "sha256": "93243be90462944e9ddf1bcb74ebedee1019ea32008e37256c56b556f7a88bdc",
+      "domain_counts": {
+        "private": 5600
+      }
+    },
+    "mixed": {
+      "path": "pilot_mixed_train.jsonl",
+      "rows": 5600,
+      "sha256": "364b8a3f852351ca1b166ca5e69fc46f0bf5d1b0a32a642b553732d07103fb7b",
+      "domain_counts": {
+        "public": 2800,
+        "private": 2800
+      }
+    }
+  },
+  "training_format": {
+    "serialization": "tokenizer.apply_chat_template",
+    "messages": [
+      {
+        "role": "system",
+        "content_source": "row instruction"
+      },
+      {
+        "role": "user",
+        "content_source": "row input"
+      },
+      {
+        "role": "assistant",
+        "content_source": "row output"
+      }
+    ],
+    "add_generation_prompt": false,
+    "enable_thinking": false,
+    "loss": "assistant segment including official assistant end marker only",
+    "max_length": 2048,
+    "max_response_tokens": 512,
+    "input_truncation": "preserve head quarter and recent tail only when needed"
+  },
+  "training": {
+    "conditions": [
+      "public_chat",
+      "private_chat",
+      "mixed_chat"
+    ],
+    "steps": 300,
+    "seed": 2026,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 0.0002,
+    "lr_scheduler": "cosine",
+    "warmup_ratio": 0.03,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": "all-linear",
+    "quantization": "4-bit NF4 double quantization, BF16 compute",
+    "optimizer": "paged_adamw_8bit",
+    "gradient_checkpointing": true,
+    "single_gpu": true
+  },
+  "inference_format": {
+    "serialization": "tokenizer.apply_chat_template",
+    "messages": [
+      {
+        "role": "system",
+        "content_source": "benchmark instruction"
+      },
+      {
+        "role": "user",
+        "content_source": "benchmark input"
+      }
+    ],
+    "add_generation_prompt": true,
+    "enable_thinking": false,
+    "max_input_tokens": 4096
+  },
+  "generation": {
+    "conditions": [
+      "base",
+      "public_chat",
+      "private_chat",
+      "mixed_chat"
+    ],
+    "max_new_tokens": 1024,
+    "do_sample": false,
+    "decoding": "greedy",
+    "temperature": null,
+    "num_beams": 1,
+    "batch_size": 1,
+    "repetition_penalty": 1.0,
+    "seed": 2026,
+    "eos": "tokenizer.eos_token_id",
+    "stop_strings": [],
+    "use_model_defaults": false
+  },
+  "automatic_evaluation": [
+    "processing_direction",
+    "five_section_format",
+    "generated_tokens",
+    "truncation",
+    "repetition"
+  ],
+  "semantic_review": {
+    "status": "planned_after_generation",
+    "items": 24,
+    "conditions": 4,
+    "responses_per_rater": 96,
+    "raters": 2,
+    "response_evaluations_total": 192,
+    "selection_file": "semantic_review_24_selection.jsonl",
+    "selection_sha256": "1dfed668f0400a49ef5204739e8d0eb8215f54d5a02d8aeaeff550c28e89e6eb",
+    "stratification": "one item per 8 domains x 3 processing levels; exactly 12 simple and 12 complex; selected before v0.6.0 outputs",
+    "scales_1_to_5": [
+      "factual_accuracy",
+      "processing_appropriateness",
+      "requirement_coverage",
+      "safety_and_administrative_appropriateness"
+    ],
+    "binary_flags": [
+      "major_factual_error",
+      "dangerous_failure_to_handoff",
+      "privacy_problem",
+      "unsupported_commitment_or_hallucination"
+    ]
+  },
+  "rag_gate": "Do not start 8-condition RAG until Chat-SFT automatic and blinded semantic results are reviewed.",
+  "freeze_hashes": {
+    "pilot_48.jsonl": "620a320b7189cc8d4daa1a1c36c68d581fd86f9023a131504dccad256f29e09f",
+    "pilot_48_gold.jsonl": "92fa5d6cd4eaae2ac03c4fc355ca344ea4681ea03ac8d2ca197aa789493ef8e7",
+    "semantic_review_24_selection.jsonl": "1dfed668f0400a49ef5204739e8d0eb8215f54d5a02d8aeaeff550c28e89e6eb"
+  },
+  "runtime": {
+    "max_runtime_seconds_per_gpu_session": 7200,
+    "one_training_condition_per_session": true,
+    "stop_on_finish_or_error": true,
+    "other_pods_untouched": true
+  },
+  "local_full_encoding_audit": {
+    "file_sha256": "168f2eb48dec28d6db3125817bbaf9bb18e20c055c0da3720f217148a7ee5afb",
+    "rows": 16800,
+    "conditions": {
+      "public": {
+        "rows": 5600,
+        "input_trimmed": 73,
+        "response_capped": 3,
+        "mean_supervised_tokens": 71.628,
+        "max_example_tokens": 2048
+      },
+      "private": {
+        "rows": 5600,
+        "input_trimmed": 5,
+        "response_capped": 0,
+        "mean_supervised_tokens": 57.96,
+        "max_example_tokens": 2048
+      },
+      "mixed": {
+        "rows": 5600,
+        "input_trimmed": 36,
+        "response_capped": 2,
+        "mean_supervised_tokens": 65.044,
+        "max_example_tokens": 2048
+      }
+    },
+    "all_pass": true,
+    "note": "same row count and steps do not imply identical supervised token exposure"
+  },
+  "code_sha256": {
+    "02_train_qlora_chat.py": "9803cb3d623bba867f7214bfce5cf0fed4e140f05244cef3c26d80b547042725",
+    "03_generate_chat.py": "0b5cac349b93dc95d180e4cbd348d06c176dca322ef2e130b0677216d259cdc3",
+    "04_evaluate_automatic.py": "151c5c2ff715cd37b6caf88fb3a464bca65ff513e1d23347b3b43faa2d8a66cd",
+    "05_verify_preflight.py": "a5f0f46151957dae29dea18a0e7df8bc336710e64d089df3e6f713e53b8f5f56"
+  }
+}

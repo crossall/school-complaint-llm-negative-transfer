@@ -1,0 +1,139 @@
+{
+  "version": "0.7.0",
+  "phase": "RAG 8-condition exploratory pilot",
+  "created_at_kst": "2026-09-13T12:26:04+09:00",
+  "authority": "User-directed continuation after the blinded 24-item expert review was unblinded and analyzed on 2026-09-13.",
+  "research_question": "Can target-domain retrieval grounding mitigate negative transfer from cross-domain complaint SFT?",
+  "interpretation": {
+    "status": "exploratory pilot",
+    "expert_items": 24,
+    "expert_raters": 2,
+    "public_vs_base": "Public chat SFT scored lower than Base on processing appropriateness, requirement coverage, safety/administrative appropriateness, and composite after Holm correction across all six pairs.",
+    "private_and_mixed": "Lower descriptive means than Base; no statistically significant Base difference after Holm correction in the 24-item review. Non-significance is not equivalence.",
+    "mixed_vs_public": "Descriptively higher composite; not significant after six-pair Holm correction (approximately p=.0704).",
+    "safety_flags": "Eleven responses require later rater consensus; unresolved flags do not block generation but block final safety conclusions.",
+    "mixed_effects": "Not estimated in the received workbook or this preflight; do not claim mixed-effects results.",
+    "received_workbook_sha256": "27a0c689c4522c9a4a08919c87b8e4d9a967a79dd666b832b941b97f523bedfa"
+  },
+  "model": {
+    "base": "Qwen/Qwen3-8B",
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+    "adapters": {
+      "public_chat": "pilot_public_chat_seed2026/final_adapter",
+      "private_chat": "pilot_private_chat_seed2026/final_adapter",
+      "mixed_chat": "pilot_mixed_chat_seed2026/final_adapter"
+    }
+  },
+  "factorial_design": {
+    "model_conditions": [
+      "base",
+      "public_chat",
+      "private_chat",
+      "mixed_chat"
+    ],
+    "rag_arms": [
+      "off",
+      "on"
+    ],
+    "total_conditions": 8,
+    "items_per_condition": 48,
+    "total_responses": 384,
+    "rerun_all_off_arms": true,
+    "reason": "All arms use the same new RAG-aware prompt wrapper and one H100 runtime; prior Off outputs are not reused.",
+    "within_item_order": "odd benchmark row Off then On; even benchmark row On then Off"
+  },
+  "prompt": {
+    "system": "benchmark instruction followed by rag_rule in both arms",
+    "rag_rule": "검색 참고자료가 제공되면 민원 사례와 직접 관련된 내용만 사용하세요. 검색 참고자료와 민원 사례의 확인 자료가 충돌하면 민원 사례의 확인 자료를 우선하세요. 검색 참고자료에 없는 사례별 날짜·장소·상태·조치를 만들지 마세요. 참고자료가 없거나 관련이 없으면 민원 사례만으로 답하세요.",
+    "user_template": "[민원 사례]\\n{benchmark input}\\n\\n[검색 참고자료]\\n{context}",
+    "off_context_placeholder": "제공되지 않음",
+    "on_context": "frozen retrieval context for the item",
+    "same_wrapper_in_both_arms": true
+  },
+  "inference_format": {
+    "serialization": "tokenizer.apply_chat_template",
+    "roles": [
+      "system",
+      "user"
+    ],
+    "add_generation_prompt": true,
+    "enable_thinking": false,
+    "max_input_tokens": 4096
+  },
+  "generation": {
+    "max_new_tokens": 1024,
+    "do_sample": false,
+    "decoding": "greedy",
+    "temperature": null,
+    "num_beams": 1,
+    "batch_size": 1,
+    "repetition_penalty": 1.0,
+    "seed": 2026,
+    "eos": "tokenizer.eos_token_id",
+    "stop_strings": [],
+    "use_model_defaults": false
+  },
+  "retrieval": {
+    "corpus_sources": 9,
+    "corpus_chunks": 3716,
+    "query_source": "first non-empty complaint utterance only; excludes case notes, domain, title, gold, prior outputs",
+    "routing": "ordered deterministic keyword primary route",
+    "ranker": "route-filtered weighted TF-IDF cosine; word 1-2 grams weight .35 plus Korean char_wb 2-5 grams weight .65",
+    "top_k": 4,
+    "max_chunks_per_source": 2,
+    "same_retrieval_across_model_conditions": true,
+    "frozen_before_generation": true,
+    "known_limitations": [
+      "SCB-P031, SCB-P033, and SCB-P037 have underspecified first utterances and use the complaint-process fallback route.",
+      "Broad queries can retrieve general procedural material; no tuning used gold answers or model outputs."
+    ]
+  },
+  "automatic_evaluation": [
+    "processing_direction",
+    "five_section_format",
+    "generated_tokens",
+    "truncation",
+    "repetition"
+  ],
+  "semantic_evaluation": {
+    "decision_after_generation": "Blind a prespecified, feasible subset before viewing condition-level semantic results.",
+    "scales": [
+      "factual_accuracy",
+      "processing_appropriateness",
+      "requirement_coverage",
+      "safety_and_administrative_appropriateness"
+    ],
+    "binary_flags": [
+      "major_factual_error",
+      "dangerous_failure_to_handoff",
+      "privacy_problem",
+      "unsupported_commitment_or_hallucination"
+    ]
+  },
+  "freeze_hashes": {
+    "pilot_48.jsonl": "620a320b7189cc8d4daa1a1c36c68d581fd86f9023a131504dccad256f29e09f",
+    "pilot_48_gold.jsonl": "92fa5d6cd4eaae2ac03c4fc355ca344ea4681ea03ac8d2ca197aa789493ef8e7",
+    "semantic_review_24_selection.jsonl": "1dfed668f0400a49ef5204739e8d0eb8215f54d5a02d8aeaeff550c28e89e6eb",
+    "corpus_chunks_multisource_frozen.jsonl": "81958b330ddbd87d373aa458700526a2e1971edc77b34f7e3a3d59036d5485f5",
+    "retrievals_48_ragpilot_frozen.jsonl": "0ee9c5805a0002ff26df80a0b64ff3736ee6a6a5ef47a0c6fcd968770db29adf",
+    "multisource_source_manifest.json": "8b82c8d60140505aff66f58fc4a6f4ed1bb71da5f7d3d134b2d32de8dad52577"
+  },
+  "runtime": {
+    "gpu": "H100 SXM 80GB x1",
+    "hourly_cost_usd": 3.49,
+    "estimated_minutes": [
+      85,
+      105
+    ],
+    "estimated_cost_usd": [
+      4.95,
+      6.11
+    ],
+    "max_runtime_seconds": 7200,
+    "stop_on_finish_or_error": true,
+    "existing_v0_6_model_and_adapters_read_only": true,
+    "other_pods_untouched": true,
+    "google_drive_upload": false
+  }
+}

@@ -1,0 +1,24 @@
+{"item_id": "SCB-P006", "domain": "교육활동", "processing_level": "담당자연계", "complexity": "복합", "title": "수업 중 모욕 주장과 공개 사과 요구"}
+{"item_id": "SCB-P002", "domain": "교육활동", "processing_level": "안내", "complexity": "복합", "title": "현장체험 참가 선택과 대체수업"}
+{"item_id": "SCB-P004", "domain": "교육활동", "processing_level": "추가확인", "complexity": "복합", "title": "준비물 구매와 평가 반영 우려"}
+{"item_id": "SCB-P024", "domain": "급식·보건", "processing_level": "담당자연계", "complexity": "복합", "title": "식이 지원 누락과 진단 공개 요구"}
+{"item_id": "SCB-P019", "domain": "급식·보건", "processing_level": "안내", "complexity": "단순", "title": "변경된 급식 메뉴"}
+{"item_id": "SCB-P021", "domain": "급식·보건", "processing_level": "추가확인", "complexity": "단순", "title": "급식 후 일회성 불편 신고"}
+{"item_id": "SCB-P036", "domain": "돌봄·방과후", "processing_level": "담당자연계", "complexity": "복합", "title": "돌봄 인계 기록 불일치와 CCTV 요구"}
+{"item_id": "SCB-P032", "domain": "돌봄·방과후", "processing_level": "안내", "complexity": "복합", "title": "방과후 휴강과 보강 일정"}
+{"item_id": "SCB-P033", "domain": "돌봄·방과후", "processing_level": "추가확인", "complexity": "단순", "title": "돌봄 선정 결과 미확인"}
+{"item_id": "SCB-P017", "domain": "생활지도·관계갈등", "processing_level": "담당자연계", "complexity": "단순", "title": "오늘 발생한 폭행 위협"}
+{"item_id": "SCB-P013", "domain": "생활지도·관계갈등", "processing_level": "안내", "complexity": "단순", "title": "교내 휴대전화 보관 안내"}
+{"item_id": "SCB-P016", "domain": "생활지도·관계갈등", "processing_level": "추가확인", "complexity": "복합", "title": "자리 배치와 반복 소외 우려"}
+{"item_id": "SCB-P047", "domain": "소통·민원절차", "processing_level": "담당자연계", "complexity": "단순", "title": "직원에 대한 당일 위해 예고"}
+{"item_id": "SCB-P044", "domain": "소통·민원절차", "processing_level": "안내", "complexity": "복합", "title": "상담 예약과 녹취 문의"}
+{"item_id": "SCB-P045", "domain": "소통·민원절차", "processing_level": "추가확인", "complexity": "단순", "title": "답변과 다른 민원 내용"}
+{"item_id": "SCB-P030", "domain": "시설·통학안전", "processing_level": "담당자연계", "complexity": "복합", "title": "공사 낙하물과 즉시 개방 요구"}
+{"item_id": "SCB-P025", "domain": "시설·통학안전", "processing_level": "안내", "complexity": "단순", "title": "임시 통학문 위치"}
+{"item_id": "SCB-P027", "domain": "시설·통학안전", "processing_level": "추가확인", "complexity": "단순", "title": "교실 소음 위치 불명"}
+{"item_id": "SCB-P041", "domain": "정보·개인정보", "processing_level": "담당자연계", "complexity": "단순", "title": "공개 게시판 성적표 노출"}
+{"item_id": "SCB-P037", "domain": "정보·개인정보", "processing_level": "안내", "complexity": "단순", "title": "공개 교육계획 찾기"}
+{"item_id": "SCB-P040", "domain": "정보·개인정보", "processing_level": "추가확인", "complexity": "복합", "title": "동의 철회와 앱 알림 구분"}
+{"item_id": "SCB-P012", "domain": "평가·기록", "processing_level": "담당자연계", "complexity": "복합", "title": "평가기준 이의와 타 학생 답안 요구"}
+{"item_id": "SCB-P007", "domain": "평가·기록", "processing_level": "안내", "complexity": "단순", "title": "답안 확인 일정"}
+{"item_id": "SCB-P010", "domain": "평가·기록", "processing_level": "추가확인", "complexity": "복합", "title": "보충평가와 출결의 혼동"}

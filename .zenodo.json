@@ -1,0 +1,27 @@
+{
+  "creators": [
+    {
+      "name": "Kim, Taeryeong",
+      "orcid": "0009-0006-5417-5094",
+      "affiliation": "Department of AI Convergence Education, Gyeongin National University of Education, Republic of Korea"
+    }
+  ],
+  "title": "School Complaint LLM Negative Transfer and Retrieval Failures: Reproducibility Package",
+  "description": "Analysis code and derived research artifacts for a controlled study of adjacent-domain instruction tuning and official-document retrieval in Korean school complaint response. The package includes SCB-48, anonymized expert ratings, compact model outputs, retrieval metadata, frozen analysis inputs, and derived results. AI Hub training data, model weights, and full official-document text are excluded.",
+  "version": "1.0.0",
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "upload_type": "software",
+  "language": "eng",
+  "keywords": [
+    "large language models",
+    "domain adaptation",
+    "instruction tuning",
+    "negative transfer",
+    "retrieval-augmented generation",
+    "educational administration",
+    "school complaints",
+    "human evaluation"
+  ],
+  "notes": "Code: Apache-2.0. Project-authored data and derived tables: CC BY 4.0. Third-party materials retain their original terms and are not relicensed."
+}

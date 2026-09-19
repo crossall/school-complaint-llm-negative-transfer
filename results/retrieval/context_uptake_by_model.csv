@@ -1,0 +1,3 @@
+model_family,context_exclusive_token_rate,context_exclusive_3gram_rate,direction_change_rate
+Base,0.06027688846174776,0.001082270795385548,0.125
+Public chat SFT,0.09901812151368904,0.014760442953263673,0.5

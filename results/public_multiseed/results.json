@@ -1,0 +1,293 @@
+{
+  "design": {
+    "items": 24,
+    "public_training_seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "same_base": true
+  },
+  "condition_summary": [
+    {
+      "condition": "base",
+      "n": 24,
+      "composite_mean": 4.265625,
+      "composite_sd": 0.7734666633720073,
+      "handling_mean": 4.0,
+      "requirement_mean": 4.0625,
+      "safety_admin_mean": 4.3125,
+      "factual_mean": 4.6875,
+      "handling_correct": 17,
+      "format_compliant": 24,
+      "mean_generated_tokens": 249.625
+    },
+    {
+      "condition": "public_seed2026",
+      "n": 24,
+      "composite_mean": 3.4895833333333335,
+      "composite_sd": 0.9568947930297961,
+      "handling_mean": 2.8541666666666665,
+      "requirement_mean": 3.125,
+      "safety_admin_mean": 3.7291666666666665,
+      "factual_mean": 4.25,
+      "handling_correct": 9,
+      "format_compliant": 20,
+      "mean_generated_tokens": 227.95833333333334
+    },
+    {
+      "condition": "public_seed2027",
+      "n": 24,
+      "composite_mean": 3.3177083333333335,
+      "composite_sd": 0.9512428702431392,
+      "handling_mean": 2.75,
+      "requirement_mean": 2.6875,
+      "safety_admin_mean": 3.4583333333333335,
+      "factual_mean": 4.375,
+      "handling_correct": 6,
+      "format_compliant": 14,
+      "mean_generated_tokens": 150.125
+    },
+    {
+      "condition": "public_seed2028",
+      "n": 24,
+      "composite_mean": 3.34375,
+      "composite_sd": 1.028301945590082,
+      "handling_mean": 2.875,
+      "requirement_mean": 2.6875,
+      "safety_admin_mean": 3.5208333333333335,
+      "factual_mean": 4.291666666666667,
+      "handling_correct": 6,
+      "format_compliant": 10,
+      "mean_generated_tokens": 121.75
+    }
+  ],
+  "base_contrasts": [
+    {
+      "metric": "factual_accuracy_mean",
+      "contrast": "public_seed2026-base",
+      "mean_difference": -0.4375,
+      "wilcoxon_w": 15.0,
+      "wilcoxon_p": 0.008750058874824973,
+      "paired_dz": -0.601786116126803,
+      "wilcoxon_p_holm": 0.026250176624474916
+    },
+    {
+      "metric": "factual_accuracy_mean",
+      "contrast": "public_seed2027-base",
+      "mean_difference": -0.3125,
+      "wilcoxon_w": 21.0,
+      "wilcoxon_p": 0.00949607211020891,
+      "paired_dz": -0.5702861074442296,
+      "wilcoxon_p_holm": 0.026250176624474916
+    },
+    {
+      "metric": "factual_accuracy_mean",
+      "contrast": "public_seed2028-base",
+      "mean_difference": -0.3958333333333333,
+      "wilcoxon_w": 30.0,
+      "wilcoxon_p": 0.010487005735214893,
+      "paired_dz": -0.5482444403785813,
+      "wilcoxon_p_holm": 0.026250176624474916
+    },
+    {
+      "metric": "handling_appropriateness_mean",
+      "contrast": "public_seed2026-base",
+      "mean_difference": -1.1458333333333333,
+      "wilcoxon_w": 9.0,
+      "wilcoxon_p": 0.00019479066185490017,
+      "paired_dz": -1.1161505947325203,
+      "wilcoxon_p_holm": 0.0005843719855647006
+    },
+    {
+      "metric": "handling_appropriateness_mean",
+      "contrast": "public_seed2027-base",
+      "mean_difference": -1.25,
+      "wilcoxon_w": 9.0,
+      "wilcoxon_p": 0.00019945292073546788,
+      "paired_dz": -1.0597390598633232,
+      "wilcoxon_p_holm": 0.0005843719855647006
+    },
+    {
+      "metric": "handling_appropriateness_mean",
+      "contrast": "public_seed2028-base",
+      "mean_difference": -1.125,
+      "wilcoxon_w": 8.0,
+      "wilcoxon_p": 0.00026822826348613625,
+      "paired_dz": -0.9670785717072949,
+      "wilcoxon_p_holm": 0.0005843719855647006
+    },
+    {
+      "metric": "requirement_fulfillment_mean",
+      "contrast": "public_seed2026-base",
+      "mean_difference": -0.9375,
+      "wilcoxon_w": 4.0,
+      "wilcoxon_p": 0.0001443972451980564,
+      "paired_dz": -1.1362955885994888,
+      "wilcoxon_p_holm": 0.0001675643768180531
+    },
+    {
+      "metric": "requirement_fulfillment_mean",
+      "contrast": "public_seed2027-base",
+      "mean_difference": -1.375,
+      "wilcoxon_w": 3.0,
+      "wilcoxon_p": 3.4597554060190286e-05,
+      "paired_dz": -1.243427163572966,
+      "wilcoxon_p_holm": 0.00010379266218057086
+    },
+    {
+      "metric": "requirement_fulfillment_mean",
+      "contrast": "public_seed2028-base",
+      "mean_difference": -1.375,
+      "wilcoxon_w": 0.0,
+      "wilcoxon_p": 8.378218840902654e-05,
+      "paired_dz": -1.1819849209755828,
+      "wilcoxon_p_holm": 0.0001675643768180531
+    },
+    {
+      "metric": "safety_administrative_appropriateness_mean",
+      "contrast": "public_seed2026-base",
+      "mean_difference": -0.5833333333333334,
+      "wilcoxon_w": 3.5,
+      "wilcoxon_p": 0.0018123552915306226,
+      "paired_dz": -0.7263757449464031,
+      "wilcoxon_p_holm": 0.0018123552915306226
+    },
+    {
+      "metric": "safety_administrative_appropriateness_mean",
+      "contrast": "public_seed2027-base",
+      "mean_difference": -0.8541666666666666,
+      "wilcoxon_w": 0.0,
+      "wilcoxon_p": 0.00010481477884768157,
+      "paired_dz": -1.170909206042179,
+      "wilcoxon_p_holm": 0.0003144443365430447
+    },
+    {
+      "metric": "safety_administrative_appropriateness_mean",
+      "contrast": "public_seed2028-base",
+      "mean_difference": -0.7916666666666666,
+      "wilcoxon_w": 0.0,
+      "wilcoxon_p": 0.0001594710194926727,
+      "paired_dz": -1.2345223859016157,
+      "wilcoxon_p_holm": 0.0003189420389853454
+    },
+    {
+      "metric": "composite_mean",
+      "contrast": "public_seed2026-base",
+      "mean_difference": -0.7760416666666666,
+      "wilcoxon_w": 7.5,
+      "wilcoxon_p": 0.00011065309081650548,
+      "paired_dz": -1.1843899734628613,
+      "wilcoxon_p_holm": 0.00020280936189252005
+    },
+    {
+      "metric": "composite_mean",
+      "contrast": "public_seed2027-base",
+      "mean_difference": -0.9479166666666666,
+      "wilcoxon_w": 4.5,
+      "wilcoxon_p": 7.396425964314822e-05,
+      "paired_dz": -1.2475477678595939,
+      "wilcoxon_p_holm": 0.00020280936189252005
+    },
+    {
+      "metric": "composite_mean",
+      "contrast": "public_seed2028-base",
+      "mean_difference": -0.921875,
+      "wilcoxon_w": 1.0,
+      "wilcoxon_p": 6.760312063084002e-05,
+      "paired_dz": -1.1714340119342905,
+      "wilcoxon_p_holm": 0.00020280936189252005
+    }
+  ],
+  "public_seed_omnibus": [
+    {
+      "metric": "factual_accuracy_mean",
+      "friedman_chi2": 0.6885245901639343,
+      "p": 0.7087430038627849,
+      "kendall_w": 0.014344262295081964
+    },
+    {
+      "metric": "handling_appropriateness_mean",
+      "friedman_chi2": 0.28124999999999994,
+      "p": 0.8688150562628432,
+      "kendall_w": 0.005859374999999999
+    },
+    {
+      "metric": "requirement_fulfillment_mean",
+      "friedman_chi2": 1.4848484848484573,
+      "p": 0.47595867658123603,
+      "kendall_w": 0.03093434343434286
+    },
+    {
+      "metric": "safety_administrative_appropriateness_mean",
+      "friedman_chi2": 7.3559322033898,
+      "p": 0.025274328006855626,
+      "kendall_w": 0.15324858757062085
+    },
+    {
+      "metric": "composite_mean",
+      "friedman_chi2": 1.6842105263157656,
+      "p": 0.43080261519744045,
+      "kendall_w": 0.03508771929824512
+    }
+  ],
+  "format_compliant_sensitivity": [
+    {
+      "public_condition": "public_seed2026",
+      "restriction": "Public response complied with the required five-section format",
+      "n": 20,
+      "mean_public_minus_base": -0.69375,
+      "wilcoxon_w": 7.5,
+      "wilcoxon_p": 0.00042443840355207285,
+      "paired_dz": -1.1599789708365742,
+      "wilcoxon_p_holm": 0.0012733152106562185
+    },
+    {
+      "public_condition": "public_seed2027",
+      "restriction": "Public response complied with the required five-section format",
+      "n": 14,
+      "mean_public_minus_base": -0.7410714285714286,
+      "wilcoxon_w": 4.0,
+      "wilcoxon_p": 0.0023120567533757193,
+      "paired_dz": -1.2938896289886308,
+      "wilcoxon_p_holm": 0.0046241135067514386
+    },
+    {
+      "public_condition": "public_seed2028",
+      "restriction": "Public response complied with the required five-section format",
+      "n": 10,
+      "mean_public_minus_base": -0.75,
+      "wilcoxon_w": 0.0,
+      "wilcoxon_p": 0.00390625,
+      "paired_dz": -1.4795908857482158,
+      "wilcoxon_p_holm": 0.0046241135067514386
+    }
+  ],
+  "added_session_reliability": [
+    {
+      "metric": "factual_accuracy",
+      "icc_a1": 0.5286135693215339,
+      "icc_ak": 0.6916248552682361
+    },
+    {
+      "metric": "handling_appropriateness",
+      "icc_a1": 0.7998206680116565,
+      "icc_ak": 0.8887781791007597
+    },
+    {
+      "metric": "requirement_fulfillment",
+      "icc_a1": 0.9111157806261819,
+      "icc_ak": 0.9534909290819131
+    },
+    {
+      "metric": "safety_administrative_appropriateness",
+      "icc_a1": 0.7411817234707545,
+      "icc_ak": 0.8513548166509959
+    },
+    {
+      "metric": "composite",
+      "icc_a1": 0.8307176199825763,
+      "icc_ak": 0.9075322277069497
+    }
+  ]
+}

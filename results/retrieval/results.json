@@ -1,0 +1,137 @@
+{
+  "v1": {
+    "items": 48,
+    "passages": 192,
+    "relevance_counts": {
+      "무관": 106,
+      "관련·일반": 77,
+      "직접 근거": 9
+    },
+    "direct_evidence_passages": 9,
+    "items_without_direct_evidence": 40,
+    "items_with_misleading_passage": 42,
+    "context_uptake_by_model": [
+      {
+        "model_family": "Base",
+        "context_exclusive_token_rate": 0.06027688846174776,
+        "context_exclusive_3gram_rate": 0.001082270795385548,
+        "direction_change_rate": 0.125
+      },
+      {
+        "model_family": "Public chat SFT",
+        "context_exclusive_token_rate": 0.09901812151368904,
+        "context_exclusive_3gram_rate": 0.014760442953263673,
+        "direction_change_rate": 0.5
+      }
+    ]
+  },
+  "v2_frozen_output": {
+    "threshold": 0.1355144457899583,
+    "dev_threshold_metrics": {
+      "threshold": 0.1355144457899583,
+      "tp": 2,
+      "fp": 5,
+      "tn": 16,
+      "fn": 1,
+      "precision": 0.2857142857142857,
+      "recall": 0.6666666666666666,
+      "specificity": 0.7619047619047619,
+      "f1": 0.4,
+      "balanced_accuracy": 0.7142857142857142,
+      "accuracy": 0.75
+    },
+    "splits": {
+      "dev": {
+        "n": 24,
+        "n_gold_positive": 3,
+        "n_no_context_expected": 21,
+        "v2_gate": {
+          "tp": 2,
+          "fp": 5,
+          "tn": 16,
+          "fn": 1,
+          "precision": 0.2857142857142857,
+          "recall": 0.6666666666666666,
+          "specificity": 0.7619047619047619,
+          "f1": 0.4,
+          "balanced_accuracy": 0.7142857142857142,
+          "accuracy": 0.75
+        },
+        "v2_gold_hit_at_4": 0.0,
+        "v2_mrr": 0.0,
+        "v2_precision_at_4": 0.0,
+        "v2_no_context_accuracy": 0.7619047619047619,
+        "v1_gold_hit_at_4": 0.3333333333333333,
+        "v1_mrr": 0.3333333333333333,
+        "v1_precision_at_4": 0.08333333333333333,
+        "v1_no_context_accuracy": 0.0
+      },
+      "test": {
+        "n": 24,
+        "n_gold_positive": 9,
+        "n_no_context_expected": 15,
+        "v2_gate": {
+          "tp": 3,
+          "fp": 6,
+          "tn": 9,
+          "fn": 6,
+          "precision": 0.3333333333333333,
+          "recall": 0.3333333333333333,
+          "specificity": 0.6,
+          "f1": 0.3333333333333333,
+          "balanced_accuracy": 0.4666666666666667,
+          "accuracy": 0.5
+        },
+        "v2_gold_hit_at_4": 0.0,
+        "v2_mrr": 0.0,
+        "v2_precision_at_4": 0.0,
+        "v2_no_context_accuracy": 0.6,
+        "v1_gold_hit_at_4": 0.2222222222222222,
+        "v1_mrr": 0.1111111111111111,
+        "v1_precision_at_4": 0.05555555555555555,
+        "v1_no_context_accuracy": 0.0
+      },
+      "all": {
+        "n": 48,
+        "n_gold_positive": 12,
+        "n_no_context_expected": 36,
+        "v2_gate": {
+          "tp": 5,
+          "fp": 11,
+          "tn": 25,
+          "fn": 7,
+          "precision": 0.3125,
+          "recall": 0.4166666666666667,
+          "specificity": 0.6944444444444444,
+          "f1": 0.35714285714285715,
+          "balanced_accuracy": 0.5555555555555556,
+          "accuracy": 0.625
+        },
+        "v2_gold_hit_at_4": 0.0,
+        "v2_mrr": 0.0,
+        "v2_precision_at_4": 0.0,
+        "v2_no_context_accuracy": 0.6944444444444444,
+        "v1_gold_hit_at_4": 0.25,
+        "v1_mrr": 0.16666666666666666,
+        "v1_precision_at_4": 0.0625,
+        "v1_no_context_accuracy": 0.0
+      }
+    },
+    "test_paired": {
+      "hit_at_4_mcnemar": {
+        "v1_fail_v2_success": 0,
+        "v1_success_v2_fail": 2,
+        "p_exact": 0.5
+      },
+      "mrr_wilcoxon": {
+        "statistic": 0.0,
+        "p": 0.5
+      }
+    },
+    "generation_entry": {
+      "automatic_criteria_pass": false,
+      "human_misleading_review_still_required": true,
+      "decision": "Do not run generation; report v2 retrieval result and stop"
+    }
+  }
+}

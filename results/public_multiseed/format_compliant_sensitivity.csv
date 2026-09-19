@@ -1,0 +1,4 @@
+public_condition,restriction,n,mean_public_minus_base,wilcoxon_w,wilcoxon_p,paired_dz,wilcoxon_p_holm
+public_seed2026,Public response complied with the required five-section format,20,-0.69375,7.5,0.00042443840355207285,-1.1599789708365742,0.0012733152106562185
+public_seed2027,Public response complied with the required five-section format,14,-0.7410714285714286,4.0,0.0023120567533757193,-1.2938896289886308,0.0046241135067514386
+public_seed2028,Public response complied with the required five-section format,10,-0.75,0.0,0.00390625,-1.4795908857482158,0.0046241135067514386

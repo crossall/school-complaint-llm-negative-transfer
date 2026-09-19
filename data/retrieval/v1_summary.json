@@ -1,0 +1,150 @@
+{
+  "version": "v0.10.0",
+  "created_at": "2026-09-15T07:33:09+09:00",
+  "scope": "동결된 48개 가상 학교민원 질의의 top-4 검색 로그 192개, Base/Public chat SFT의 RAG Off/On 192응답, 사전선정 24문항의 합의 안전판정 96응답",
+  "consensus_safety": {
+    "counts": {
+      "Base + RAG Off": {
+        "major_factual_error": 0,
+        "dangerous_failure_to_handoff": 2,
+        "privacy_problem": 0,
+        "unsupported_commitment_or_hallucination": 0,
+        "any_safety_error": 2
+      },
+      "Base + RAG On": {
+        "major_factual_error": 0,
+        "dangerous_failure_to_handoff": 2,
+        "privacy_problem": 0,
+        "unsupported_commitment_or_hallucination": 3,
+        "any_safety_error": 5
+      },
+      "Public chat SFT + RAG Off": {
+        "major_factual_error": 0,
+        "dangerous_failure_to_handoff": 0,
+        "privacy_problem": 1,
+        "unsupported_commitment_or_hallucination": 2,
+        "any_safety_error": 2
+      },
+      "Public chat SFT + RAG On": {
+        "major_factual_error": 5,
+        "dangerous_failure_to_handoff": 2,
+        "privacy_problem": 2,
+        "unsupported_commitment_or_hallucination": 11,
+        "any_safety_error": 13
+      }
+    },
+    "exact_mcnemar_from_supplied_workbook": {
+      "Public_any_safety_2_to_13": 0.00341796875,
+      "Public_unsupported_2_to_11": 0.01171875,
+      "Public_major_0_to_5": 0.0625,
+      "Base_any_safety_2_to_5": 0.25
+    },
+    "supersedes": "v0.9.0의 평가자1 우선 안전 최종값. v0.9.0 원자료는 보존한다."
+  },
+  "retrieval_audit_48": {
+    "items": 48,
+    "chunks": 192,
+    "relevance_counts": {
+      "관련·일반": 77,
+      "무관": 106,
+      "직접 근거": 9
+    },
+    "direct_chunk_rate": 0.046875,
+    "items_with_direct_chunk": 8,
+    "items_without_direct_chunk": 40,
+    "misleading_chunks": 96,
+    "items_with_misleading_chunk": 42,
+    "audit_design": "연구지원 분석 1인의 사후 수동 코딩. v0.9.0의 24문항 코딩을 승계하고 나머지 24문항을 같은 규칙으로 추가했다."
+  },
+  "context_reliance_base_vs_public": [
+    {
+      "metric": "context_exclusive_token_rate",
+      "n_paired_items": 48,
+      "base_mean": 0.06027688846174781,
+      "public_mean": 0.09901812151368906,
+      "public_minus_base": 0.038741233051941264,
+      "bootstrap_95ci_low": 0.0161382643929275,
+      "bootstrap_95ci_high": 0.06299739331082209,
+      "paired_signed_rank_permutation_p": 0.012174939125304374,
+      "paired_signflip_p": 0.0018049909750451247
+    },
+    {
+      "metric": "context_exclusive_3gram_rate",
+      "n_paired_items": 48,
+      "base_mean": 0.0010822707953855495,
+      "public_mean": 0.01476044295326368,
+      "public_minus_base": 0.01367817215787813,
+      "bootstrap_95ci_low": 0.004511487031763179,
+      "bootstrap_95ci_high": 0.024438443546094858,
+      "paired_signed_rank_permutation_p": 0.009765625,
+      "paired_signflip_p": 0.0087890625
+    },
+    {
+      "metric": "longest_context_exclusive_word_run",
+      "n_paired_items": 48,
+      "base_mean": 0.1875,
+      "public_mean": 0.8333333333333334,
+      "public_minus_base": 0.6458333333333334,
+      "bootstrap_95ci_low": 0.14583333333333334,
+      "bootstrap_95ci_high": 1.2083333333333333,
+      "paired_signed_rank_permutation_p": 0.0185546875,
+      "paired_signflip_p": 0.0234375
+    },
+    {
+      "metric": "char_change_on_minus_off",
+      "n_paired_items": 48,
+      "base_mean": 19.645833333333332,
+      "public_mean": 39.9375,
+      "public_minus_base": 20.291666666666668,
+      "bootstrap_95ci_low": -67.8125,
+      "bootstrap_95ci_high": 114.91927083333312,
+      "paired_signed_rank_permutation_p": 0.8610556947215264,
+      "paired_signflip_p": 0.7188864055679721
+    },
+    {
+      "metric": "repetition_change_on_minus_off",
+      "n_paired_items": 48,
+      "base_mean": 0.00833895198526397,
+      "public_mean": 0.0301767759700389,
+      "public_minus_base": 0.02183782398477493,
+      "bootstrap_95ci_low": -0.040344568156872956,
+      "bootstrap_95ci_high": 0.08777149266014071,
+      "paired_signed_rank_permutation_p": 0.7034014829925851,
+      "paired_signflip_p": 0.5086324568377159
+    },
+    {
+      "metric": "direction_changed",
+      "n_paired_items": 48,
+      "base_mean": 0.125,
+      "public_mean": 0.5,
+      "public_minus_base": 0.375,
+      "bootstrap_95ci_low": 0.20833333333333334,
+      "bootstrap_95ci_high": 0.5416666666666666,
+      "paired_signed_rank_permutation_p": 0.000244998775006125,
+      "paired_signflip_p": 0.000279998600007
+    }
+  ],
+  "public_error_linkage": {
+    "explicit_harmful_link_all48": 18,
+    "explicit_harmful_link_selected24": 10,
+    "selected24_explicit_mean_composite_delta": -1.4,
+    "selected24_other_mean_composite_delta": -0.23214285714285715,
+    "interpretation_limit": "출력 문구와 검색문맥의 대응을 사후 분류한 탐색적 진단이다. 검색문맥의 인과효과나 독립 코더 신뢰도로 해석하지 않는다."
+  },
+  "decision": {
+    "status": "RAG v1 중단, 오프라인 Retriever v2 설계로 이동",
+    "required_before_gpu": [
+      "48문항 각각에서 정답에 필요한 근거의 공식 출처와 정답 chunk를 먼저 정의한다.",
+      "문항별 직접근거 top-k recall, 무관·오도 chunk 비율, 출처/절차 충돌 차단 규칙을 오프라인으로 검증한다.",
+      "직접 근거가 없으면 생성기에 문맥을 주지 않는 abstention gate를 포함한다.",
+      "v2가 v1보다 직접근거 회수율을 높이고 오도 문맥을 줄였을 때만 동일 48문항 GPU 재생성을 실행한다."
+    ]
+  },
+  "limitations": [
+    "48문항과 합의 안전판정 24문항은 탐색적 Pilot이며 본실험의 확증 결과가 아니다.",
+    "검색 적합성·출력 연결 코딩은 연구지원 분석 1인의 사후 판정으로 독립 이중 코딩이 없다.",
+    "문맥 의존도 자동지표는 공통 단어를 줄인 문자열 중복 지표이며 의미적 신뢰를 완전하게 측정하지 않는다.",
+    "두 평가자는 독립 채점했으나 같은 응답 제시 순서를 사용했다.",
+    "별도 IRB 심의가 없었다는 사용자 확인을 기록하며 심의 면제 승인으로 표현하지 않는다."
+  ]
+}

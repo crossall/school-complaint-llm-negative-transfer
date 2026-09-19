@@ -1,0 +1,11 @@
+model,flag,off_only,on_only,discordant,exact_p
+base,major_factual_error_final,0,0,0,1.0
+base,dangerous_failure_to_handoff_final,0,0,0,1.0
+base,privacy_problem_final,0,0,0,1.0
+base,unsupported_commitment_or_hallucination_final,0,3,3,0.25
+base,any_safety_error_final,0,3,3,0.25
+public,major_factual_error_final,0,5,5,0.0625
+public,dangerous_failure_to_handoff_final,0,2,2,0.5
+public,privacy_problem_final,1,2,3,1.0
+public,unsupported_commitment_or_hallucination_final,1,10,11,0.01171875
+public,any_safety_error_final,1,12,13,0.00341796875

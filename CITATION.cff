@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this package, please cite the archived software release and the associated article."
+title: "School Complaint LLM Negative Transfer and Retrieval Failures: Reproducibility Package"
+type: software
+version: 1.0.0
+date-released: 2026-09-19
+repository-code: "https://github.com/crossall/school-complaint-llm-negative-transfer"
+authors:
+  - family-names: Kim
+    given-names: Taeryeong
+    orcid: "https://orcid.org/0009-0006-5417-5094"
+    affiliation: "Department of AI Convergence Education, Gyeongin National University of Education, Republic of Korea"
+license: Apache-2.0
+keywords:
+  - large language models
+  - domain adaptation
+  - negative transfer
+  - retrieval-augmented generation
+  - educational administration
+  - school complaints
+abstract: >-
+  Analysis code and derived research artifacts for a controlled study of adjacent-domain
+  instruction tuning and official-document retrieval in Korean school complaint response.

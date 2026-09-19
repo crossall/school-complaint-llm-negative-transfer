@@ -1,0 +1,80 @@
+{
+  "version": "0.12.1",
+  "purpose": "Public Chat-SFT multi-seed replication",
+  "model": {
+    "base": "Qwen/Qwen3-8B",
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+  },
+  "training_data": {
+    "path": "pilot_public_train.jsonl",
+    "rows": 5600,
+    "sha256": "3c3efa0fcf2e134c4012af5c2dde8f9950a10c623599013160d19ee2291bb425",
+    "domain_counts": {"public": 5600}
+  },
+  "training": {
+    "seeds": [2026, 2027, 2028],
+    "new_seeds": [2027, 2028],
+    "steps": 300,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 16,
+    "learning_rate": 0.0002,
+    "lr_scheduler": "cosine",
+    "warmup_ratio": 0.03,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": "all-linear",
+    "quantization": "4-bit NF4 double quantization, BF16 compute",
+    "optimizer": "paged_adamw_8bit",
+    "gradient_checkpointing": true,
+    "max_length": 2048,
+    "max_response_tokens": 512,
+    "single_gpu": true
+  },
+  "format": {
+    "serialization": "tokenizer.apply_chat_template",
+    "role_layout": {"system": "instruction", "user": "input", "assistant": "output"},
+    "enable_thinking": false,
+    "loss": "assistant segment including official assistant end marker only"
+  },
+  "inference_format": {
+    "serialization": "tokenizer.apply_chat_template",
+    "messages": [
+      {"role": "system", "content_source": "benchmark instruction"},
+      {"role": "user", "content_source": "benchmark input"}
+    ],
+    "add_generation_prompt": true,
+    "enable_thinking": false,
+    "max_input_tokens": 4096
+  },
+  "generation": {
+    "conditions": ["base", "public_seed2026", "public_seed2027", "public_seed2028"],
+    "max_new_tokens": 1024,
+    "do_sample": false,
+    "decoding": "greedy",
+    "temperature": null,
+    "num_beams": 1,
+    "batch_size": 1,
+    "repetition_penalty": 1.0,
+    "seed": 2026,
+    "eos": "tokenizer.eos_token_id",
+    "stop_strings": [],
+    "use_model_defaults": false
+  },
+  "frozen_seed2026_adapter": {
+    "adapter_model_sha256": "e9a872871d76c231d332449962b7b2d02d1d38724fc4fb049909fcbc55e85ba9",
+    "adapter_model_bytes": 174655536
+  },
+  "freeze_hashes": {
+    "pilot_48.jsonl": "620a320b7189cc8d4daa1a1c36c68d581fd86f9023a131504dccad256f29e09f",
+    "pilot_48_gold.jsonl": "92fa5d6cd4eaae2ac03c4fc355ca344ea4681ea03ac8d2ca197aa789493ef8e7",
+    "semantic_review_24_selection.jsonl": "1dfed668f0400a49ef5204739e8d0eb8215f54d5a02d8aeaeff550c28e89e6eb"
+  },
+  "runtime": {
+    "max_runtime_seconds_per_gpu_session": 7200,
+    "one_training_seed_per_session": true,
+    "stop_on_finish_or_error": true,
+    "other_pods_untouched": true
+  }
+}

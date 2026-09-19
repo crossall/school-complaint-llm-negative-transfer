@@ -1,0 +1,5 @@
+condition_id,n,major_factual_error_final,dangerous_failure_to_handoff_final,privacy_problem_final,unsupported_commitment_or_hallucination_final,any_safety_error_final
+base_rag_off,24,0,2,0,0,2
+base_rag_on,24,0,2,0,3,5
+public_chat_rag_off,24,0,0,1,2,2
+public_chat_rag_on,24,5,2,2,11,13

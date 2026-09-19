@@ -1,0 +1,92 @@
+{
+  "package_version": "1.0.0-rc1",
+  "project_release": "v0.14.0",
+  "created_at_kst": "2026-09-19T17:17:00+09:00",
+  "source_files": [
+    {
+      "name": "학교민원_24문항4조건_전문가평가_조건해제분석_v1.xlsx",
+      "bytes": 26368,
+      "sha256": "27a0c689c4522c9a4a08919c87b8e4d9a967a79dd666b832b941b97f523bedfa"
+    },
+    {
+      "name": "06_학교민원_3차ChatSFT원응답과기술기록_v0.6.2_20260912_1318_KST_보관용.zip",
+      "bytes": 240378,
+      "sha256": "22e2e35b6bb4d3999879bd4043b5ffffcf08b2b6a9fa9c51215668ce2f2b9720"
+    },
+    {
+      "name": "12_학교민원_RAG검색동결자료_v0.7.0_20260914_0106_KST_보관용.zip",
+      "bytes": 1344690,
+      "sha256": "2e4e6f25a9b80b184e6090503cd7004eeeb9728354323014445cfd53042d5333"
+    },
+    {
+      "name": "13_학교민원_RAG8조건원응답과기술기록_v0.7.0_20260914_0106_KST_보관용.zip",
+      "bytes": 646370,
+      "sha256": "8c3f1e91fe1c72a9edf2d15594d4057baa27db109a8bfb2c5fb9d2c36230ee02"
+    },
+    {
+      "name": "08_학교민원_PublicSFT3Seed_원응답과기술기록_v0.12.2_20260917_1623_KST_보관용.zip",
+      "bytes": 205600,
+      "sha256": "cd89bfc0fa24642426940077806dda43ea4988fa300fa15cf88a02b2a0ff0002"
+    },
+    {
+      "name": "04_학교민원_PublicSFT3Seed_전문가평가_병합96응답_v0.13.0_20260918_0000_KST_확정.csv",
+      "bytes": 126079,
+      "sha256": "2295383767eef293f6261b0184c9ef4fa2bf69168157fb0aff9e9123e099ace7"
+    },
+    {
+      "name": "04_학교민원_RAG1차전문가평가_병합원자료192평정_v0.8.0_20260914_2140_KST_확정.csv",
+      "bytes": 67620,
+      "sha256": "c6f32f4682d63b77fd582cb81e89491d8087bd021147a5b0ea254e5e700e60fa"
+    },
+    {
+      "name": "05_학교민원_RAG1차전문가평가_응답별평균96행_v0.8.0_20260914_2140_KST_확정.csv",
+      "bytes": 27435,
+      "sha256": "3901f8d413df10eaa07318c7199f2d0459282e76a4857d62a37920f5444c5492"
+    },
+    {
+      "name": "03_학교민원_RAG1차_안전합의최종96행_v0.10.0_20260915_0733_KST_확정.csv",
+      "bytes": 24681,
+      "sha256": "72cee6fe68d3999eaa85844091b20315d3763fa31a5b86de0d104f59cf14822e"
+    },
+    {
+      "name": "04_학교민원_RAG검색문맥192개_적합성감사_v0.10.0_20260915_0733_KST_연구자판정.csv",
+      "bytes": 231501,
+      "sha256": "8da255f96b09d8e63958eab2737c67c4f249701c8db7d3545ecf31d2727fb285"
+    },
+    {
+      "name": "05_학교민원_RAG48문항_검색오류경로_v0.10.0_20260915_0733_KST_확정.csv",
+      "bytes": 22374,
+      "sha256": "bc92de057026c4ccec34e62a3ca6699158496b443503b281c969691ebf196e2a"
+    },
+    {
+      "name": "06_학교민원_BasePublic_RAG문맥의존도96행_v0.10.0_20260915_0733_KST_확정.csv",
+      "bytes": 196037,
+      "sha256": "62014898eb348d48dd8d0d171ad03eec2b57b19087334497cc810a0de929e75b"
+    },
+    {
+      "name": "07_학교민원_BasePublic_RAG문맥의존도비교_v0.10.0_20260915_0733_KST_탐색.csv",
+      "bytes": 1071,
+      "sha256": "f454a3074a86c7bdda88877472000139866379d5d771aa4d8e70b59888e60c06"
+    },
+    {
+      "name": "08_학교민원_RAG48검색로그분석_요약_v0.10.0_20260915_0733_KST_확정.json",
+      "bytes": 6425,
+      "sha256": "842c3de5f6b86b6dbd983231f69370b91835d8bee7e249d0ead635508446157b"
+    },
+    {
+      "name": "IEEE_Access_School_Complaint_LLM_CONTENT_MASTER_v2.docx",
+      "bytes": 65264,
+      "sha256": "c58d0f0afcd5ca54ed69235c03ef6625f023c425d414c48cd9bee72b867a2245"
+    }
+  ],
+  "exclusions": [
+    "AI Hub raw data and processed training JSONL",
+    "QLoRA adapter weights and base-model weights",
+    "full text of the 3,716 official-document chunks",
+    "direct personal identifiers of expert raters"
+  ],
+  "redactions": {
+    "retrieval_corpus": "Only chunk IDs, source metadata, locators, scores, and hashes are included.",
+    "generation_records": "Token ID arrays, raw special-token output, timestamps, and machine-local paths are omitted."
+  }
+}
