@@ -4,7 +4,7 @@ Reproducibility package for **“Target-Task Misalignment in LLM Domain Adaptati
 
 This release candidate contains the synthetic SCB-48 benchmark, frozen evaluation keys, anonymized expert ratings, compact model outputs, retrieval metadata, and analysis code used for the manuscript. It reproduces the instruction-tuning, multi-seed, RAG, safety, and retrieval results without downloading model weights or running a GPU.
 
-> Release status: `v1.0.0-rc1` (prepared 2026-09-19 KST). Repository: [github.com/crossall/school-complaint-llm-negative-transfer](https://github.com/crossall/school-complaint-llm-negative-transfer). DOI will be inserted after the Zenodo release.
+> Release status: `v1.0.0` (released 2026-09-19 KST). Repository: [github.com/crossall/school-complaint-llm-negative-transfer](https://github.com/crossall/school-complaint-llm-negative-transfer). DOI will be inserted after the Zenodo release.
 
 ## Quick start
 

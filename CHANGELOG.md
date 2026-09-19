@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0-rc1 — 2026-09-19
+## 1.0.0 — 2026-09-19
 
 - Assembled the manuscript reproducibility package from frozen project releases.
 - Added SCB-48, anonymized expert ratings, compact outputs, retrieval metadata, and Retriever v2 frozen results.
